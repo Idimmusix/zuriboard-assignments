@@ -3,21 +3,25 @@ class Student:
 
     def __init__(self, name, age, tracks, score):
       self.name=name
-      self.age=age
+      self.age=int(age)
       self.tracks=tracks
       self.score=score
 
     def change_name(self, name):
       self.name = name
 
-    #debug method
+    #debug method to get name
     def getName(self):
        return self.name
 
     def change_age(self, age):
-      self.age=age
+      try:
+        self.age=int(age)
+      except:
+        print('This is not a valid age')
+        return
 
-    #debug method
+    #debug method to get age
     def getAge(self):
       return self.age
 
@@ -27,6 +31,7 @@ class Student:
     def add_track(self, track):
       self.tracks.append(track)
 
+    #debug method to get track
     def getTracks(self):
       return self.tracks
 
@@ -39,5 +44,8 @@ Bob.change_age(34)
 Bob.add_track("UI/UX")
 Bob.get_score()
 
+#debug
 print('My name is ',Bob.getName(), ', I am ',Bob.getAge(),' years old, I scored ',Bob.get_score(), ' in my ',Bob.getTracks(),' tracks\n')
-#
+
+#debug
+Bob.change_age('gh')
